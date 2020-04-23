@@ -5,6 +5,9 @@ subtitle: Treinamento do modelo e exposição dos resultados - Modelo 1
 tags: [COVID]
 ---
 
+**Being translated!** 23/04/2020
+
+
 **Objetivo principal do projeto:** automatizar o processo de detecção de casos de COVID-19 a partir de imagens de radiografia de tórax, utilizando redes neurais convolucionais (RNC) por meio de técnicas de aprendizado profundo (deep learning). O projeto completo pode ser acessado [aqui](https://github.com/deepdados/ProjetoCOVID/blob/master/projeto_cesar_lucas_COVID.pdf)
 
 **Etapas para alcançar o objetivo:**<br />
