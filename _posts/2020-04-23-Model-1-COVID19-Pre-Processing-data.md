@@ -5,7 +5,7 @@ subtitle: Data pre-processing - Model 1
 tags: [COVID]
 ---
 
-**Main objective of the project:** automate the process of detecting COVID-19 cases from chest X-ray images, using convolutional neural networks (RNC) from deep learning techniques. The complete project can be accessed [here](https://)
+**Main objective of the project:** Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here](https://)
 
 **Steps to reach the goal:**<br />
 1- Data pre-processing<br />
