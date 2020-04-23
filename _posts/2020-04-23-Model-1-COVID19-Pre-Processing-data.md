@@ -1,35 +1,35 @@
 ---
 layout: post
-title: Modelo 1 - Tutorial 1 - Detecção automática de casos de COVID-19 a partir de imagens de radiografia de tórax
-subtitle: Pré-processamento dos dados - Modelo 1
+title: Model 1 - Tutorial 1 - Automatic detection of COVID-19 cases from chest X-ray images
+subtitle: Data pre-processing - Model 1
 tags: [COVID]
 ---
 
-**Objetivo principal do projeto:** automatizar o processo de detecção de casos de COVID-19 a partir de imagens de radiografia de tórax, utilizando redes neurais convolucionais (RNC) por meio de técnicas de aprendizado profundo (deep learning). O projeto completo pode ser acessado [aqui](https://github.com/deepdados/ProjetoCOVID/blob/master/projeto_cesar_lucas_COVID.pdf)
+**Main objective of the project:** automate the process of detecting COVID-19 cases from chest X-ray images, using convolutional neural networks (RNC) from deep learning techniques. The complete project can be accessed [here](https://)
 
-**Etapas para alcançar o objetivo:**<br />
-1- Pré-processamento dos dados<br />
-[2- Treinamento do modelo e exposição dos resultados](https://deepdados.github.io/2020-04-15-Modelo-1-COVID19-Treinamento-e-Resultados/)
+**Steps to reach the goal:**<br />
+1- Data pre-processing<br />
+[2- Model training and exposure of results](https://)
 
 
-**Etapa 1 - Pré-processamento dos dados**
+**Step 1 - Data pre-processing**
 
-*Bases de dados utilizadas:*<br />
-- Imagens de raio X e tomografias computadorizadas de tórax de indivíduos infectados com COVID-19 (COHE; MORRISON; DAO, 2020): [link](https://github.com/ieee8023/covid-chestxray-dataset)<br />
-- Imagens de pulmões de indivíduos sem nenhuma infecção (KERMANY; ZHANG; GOLDBAUM, 2018): [link](https://data.mendeley.com/datasets/rscbjbr9sj/2)<br />
+*Databases used:*<br />
+- X-ray images and chest CT scans of individuals infected with COVID-19 (COHE; MORRISON; DAO, 2020): [link](https://github.com/ieee8023/covid-chestxray-dataset)<br />
+- Images of lungs of individuals without any infection (KERMANY; ZHANG; GOLDBAUM, 2018): [link](https://data.mendeley.com/datasets/rscbjbr9sj/2)<br />
 
-*Pacotes utilizados:*<br />
+*Packages used:*<br />
 - Pandas<br />
 - Os<br />
 - PIL<br />
 - Numpy<br />
 - CV2<br />
 
-*Código utilizado no projeto:*<br />
-O notebook com todos os códigos utilizados nesta etapa está disponível [aqui](https://github.com/deepdados/ProjetoCOVID/blob/master/preProcessamento_COVID_modelo1.ipynb)<br />
-**Observação:** a numeração e título de cada passo descrito neste tutorial, corresponde com a numeração e título contidos no notebook.
+*Code used in the project:*<br />
+The notebook with all the codes used in this step is available [here](https://)<br />
+**Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
-*Passos que serão seguidos:*<br />
+*Steps to be followed:*<br />
 **1º Passo** – [Importar as bibliotecas que serão utilizadas](#importar-as-bibliotecas-que-serão-utilizadas)<br />
 **2º Passo** – [Carregar o dataframe referente às imagens de pulmões de indivíduos com COVID-19](#carregar-o-dataframe-referente-às-imagens-de-pulmões-de-indivíduos-com-covid-19)<br />
 **3º Passo** – [Análise do dataframe “df”](#análise-do-dataframe-df)<br />
