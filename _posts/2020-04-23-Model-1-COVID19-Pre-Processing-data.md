@@ -52,10 +52,10 @@ The notebook with all the codes used in this step is available [here](https://)<
 
 **Tutorial 1:**
 
-**1º Passo** 
-#### Importar as bibliotecas que serão utilizadas
+**1º Step** 
+#### Import the libraries to be used
 
-Importamos as bibliotecas Pandas, Os, PIL, Numpy e CV2 visto que nos apoiaremos nestas para realizar o pré-processamento dos dados do modelo referente à COVID-19.
+We imported the Pandas, Os, PIL, Numpy, and CV2 libraries as we will rely on them to pre-process the model data for COVID-19.
 
 ``` python
 import pandas as pd
@@ -65,23 +65,23 @@ import numpy as np
 import cv2
 ```
 
-**Observação:** a biblioteca “Pandas” foi importada como “pd”, com o intuito de agilizar a escrita do código. Ou seja, ao invés de digitar “pandas” ao usá-la, digitarei apenas “pd”. O mesmo foi feito com a biblioteca “numpy”. Além disso, a biblioteca "PIL" não foi importada completamente, pois não utilizaremos todas as funções ali contidas. Desta forma, facilita a utilização da biblioteca e o processamento dos códigos/dados.
+**Note:** the “Pandas” library was imported as “pd”, in order to speed up the writing of the code. That is, instead of typing "pandas" when using it, I will just type "pd". The same was done with the “numpy” library. In addition, the "PIL" library has not been imported completely, as we will not use all the functions contained therein. In this way, it facilitates the use of the library and the processing of codes/data.
 
-**2º Passo**
-#### Carregar o dataframe referente às imagens de pulmões de indivíduos com COVID-19
+**2º Step**
+#### Load the dataframe for lung images of individuals with COVID-19
 
-Carregamos o arquivo em .csv, chamado “metadata”, que acompanha o banco de imagens disponibilizado pelos pesquisadores (COHE; MORRISON; DAO, 2020).<br />
+We load the file in .csv, called “metadata”, which accompanies the image bank provided by the researchers (COHE; MORRISON; DAO, 2020).<br />
 <br />
-O comando abaixo nomeia este dataframe de “df” ao carregá-lo. Entre os parênteses, você deve colocar o endereço que se encontra este arquivo.
+The command below names this dataframe “df” when loading it. In parentheses, you must enter the address of this file.
 
 ``` python
 df = pd.read_csv("/Users/Neto/Desktop/Aprendizados/2020/Kaggle/corona_deep_learning/covid-chestxray-dataset-master/metadata.csv")
 ```
 
-**3º Passo**
-#### Análise do dataframe “df”
+**3º Step**
+#### Analysis of the "df" dataframe
 
-Geramos alguns dados descritivos com o intuito de descobrir quantas imagens de COVID-19 estão disponíveis no dataframe (df). Para tanto, pedimos uma contagem de valores a partir da variável/coluna “finding”. Esta variável contém o diagnóstico relacionado a cada imagem de pulmão.
+We generated some descriptive data in order to find out how many images of COVID-19 are available on the dataframe (df). For that, we ask for a count of values from the variable/column “finding”. This variable contains the diagnosis related to each lung image.
 
 ``` python
 df.finding.value_counts()
@@ -99,12 +99,12 @@ Legionella          2
 Klebsiella          1
 Name: finding, dtype: int64
 ```
-É possível notar a partir dos dados que 188 imagens se referem à COVID-19.<br />
+It is possible to notice from the data that 188 images refer to COVID-19.<br />
 
-**4º Passo**
-#### Selecionar os casos relacionados à COVID-19 no dataframe “df”
+**4º Step**
+#### Select the cases related to COVID-19 on the “df” dataframe
 
-Separamos apenas os casos da variável/coluna “finding” no dataframe “df” que eram COVID-19, visto que utilizaremos apenas estes casos no modelo. Salvamos esta seleção em um novo dataframe nomeado “df_covid”.
+We separated only the cases of the variable/column "finding" in the dataframe "df" that were COVID-19 since we will only use these cases in the model. We saved this selection in a new dataframe named “df_covid”.
 
 ``` python
 df_covid = df[df["finding"] == "COVID-19"]
