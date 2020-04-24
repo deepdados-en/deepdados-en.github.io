@@ -462,7 +462,7 @@ np.save("/Users/cesarsoares/Documents/Python/COVID/X_Train.npy",X_train)
 np.save("/Users/cesarsoares/Documents/Python/COVID/Y_Train.npy", Y_train)
 ```
 
-**Note:** X_Train will be the input of the trained model and Y_Train will be the target, that is, the expected result of the model.(br />
+**Note:** X_Train will be the input of the trained model and Y_Train will be the target, that is, the expected result of the model.<br />
 
 **Bibliography** <br />
 COHEN, Joseph; MORRISON, Paul; DAO, Lan. COVID-19 Image Data Collection. arXiv:2003.11597, 2020.<br />
