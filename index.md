@@ -8,7 +8,7 @@ meta-description: "Projects - AI (Authors: César Pedrosa Soares e Lucas Pedrosa
 ---
 
 <div class="list-filters">
-  <span class="list-filter filter-selected">Projeto COVID-19 e Inteligência Artificial </span>
+  <span class="list-filter filter-selected"> COVID-19 Project and Artificial Intelligence </span>
 </div>
 
 <div class="posts-list">
