@@ -11,7 +11,7 @@ tags: [COVID]
 
 **Steps to reach the goal:**<br />
 1- Data pre-processing<br />
-[2- Model training and exposure of results](https://)
+[2- Model training and exposure of results](https://deepdados-en.github.io/2020-04-24-Model-1-COVID19-Training-and-Results/)
 
 
 **Step 1 - Data pre-processing**
