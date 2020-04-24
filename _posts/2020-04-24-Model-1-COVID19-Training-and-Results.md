@@ -40,15 +40,15 @@ The notebook with all the codes used in this step is available [here](https://)<
 **Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
 *Steps to be followed:*<br />
-**1º Passo** – [Importar as bibliotecas que serão utilizadas](#importar-as-bibliotecas-que-serão-utilizadas)<br />
-**2º Passo** – [Carregar os arrays construídos na etapa referente ao pré-processamento de dados e normalizar os dados do input](#carregar-os-arrays-construídos-na-etapa-referente-ao-pré-processamento-de-dados-e-normalizar-os-dados-do-input)<br />
-**3º Passo** – [Dividir os dados em dados de treinamento e dados de teste](#dividir-os-dados-em-dados-de-treinamento-e-dados-de-teste)<br />
-**4º Passo** – [Determinando a arquitetura do modelo que será treinado](#determinando-a-arquitetura-do-modelo-que-será-treinado)<br />
-**5º Passo** – [Determinar os hyperparameters e compilar o modelo](#determinar-os-hyperparameters-e-compilar-o-modelo)<br />
-**6º Passo** – [Treinar o modelo](#treinar-o-modelo)<br />
-**7º Passo** – [Observar a acurácia do modelo e a função de perda](#observar-a-acurácia-do-modelo-e-a-função-de-perda)<br />
-**8º Passo** – [Observar quais imagens o modelo acertou](#observar-quais-imagens-o-modelo-acertou)<br />
-**9º Passo** – [Construir uma matriz de confusão](#construir-uma-matriz-de-confusão)<br />
+**1º Passo** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
+**2º Passo** – [Load the arrays built in the data pre-processing step and normalize the input data](#load-the-arrays-built-in-the-data-pre-processing-step-and-normalize-the-input-data)<br />
+**3º Passo** – [Split data into training data and test data](#split-data-into-training-data-and-test-data)<br />
+**4º Passo** – [Determining the architecture of the model to be trained](#determining-the-architecture-of-the-model-to-be-trained)<br />
+**5º Passo** – [Determine the hyperparameters and compile the model](#determine-the-hyperparameters-and-compile-the-model)<br />
+**6º Passo** – [Train the model](#train-the-model)<br />
+**7º Passo** – [Observe the accuracy of the model and the loss function](#observe-the-accuracy-of-the-model-and-the-loss-function)<br />
+**8º Passo** – [Observe which images the model hit](#observe-which-images-the-model-hit)<br />
+**9º Passo** – [Build a confusion matrix](#build-a-confusion-matrix)<br />
 
 **Tutorial 2:**
 
