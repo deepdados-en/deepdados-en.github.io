@@ -52,10 +52,10 @@ The notebook with all the codes used in this step is available [here](https://)<
 
 **Tutorial 2:**
 
-**1º Passo** 
-#### Importar as bibliotecas que serão utilizadas
+**1º Step** 
+#### Import the libraries to be used
 
-Importamos as bibliotecas Tensorflow, Sklearn, Imutils, Matplotlib, Numpy, Argparse, Cv2, Os, Pandas e Seaborn, visto que nos apoiaremos nestas para realizar o treinamento do modelo referente à COVID-19 e a análise dos resultados.
+We import the Tensorflow, Sklearn, Imutils, Matplotlib, Numpy, Argparse, Cv2, Os, Pandas and Seaborn libraries, since we will rely on them to carry out the training of the model referring to COVID-19 and the analysis of the results.
 
 ``` python
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -87,12 +87,12 @@ import seaborn as sn
 %matplotlib inline
 ```
 
-**Observação:** algumas bibliotecas não foram importadas completamente, como, por exemplo, o Tensorflow, pois não utilizaremos todas as funções ali contidas. Desta forma, facilita a utilização da biblioteca e o processamento dos códigos/dados.<br />
+**Note:** some libraries have not been imported completely, such as, for example, Tensorflow, as we will not use all the functions contained therein. In this way, it facilitates the use of the library and the processing of codes/data.<br />
 
-**2º Passo**
-#### Carregar os arrays construídos na etapa referente ao pré-processamento de dados e normalizar os dados do input
+**2º Step**
+#### Load the arrays built in the data pre-processing step and normalize the input data
 
-Os arrays “X_Train” e “Y_Train” construídos na [Etapa 1](https://deepdados.github.io/2020-04-14-Modelo-1-COVID19-Pr%C3%A9-Processamento-dos-Dados/) foram carregados e associados, respectivamente, às variáveis “X_train” e “Y_train”. Além disso, a variável X_train foi normalizada para os valores oscilarem entre 0 e 1.
+The “X_Train” and “Y_Train” arrays built in [Step 1] (https://deepdados-en.github.io/2020-04-23-Model-1-COVID19-Pre-Processing-data/) were loaded and associated, respectively, with the variables “X_train” and “Y_train”. In addition, the variable X_train has been normalized for values ​​ranging from 0 to 1.
 
 ``` python
 X_train = np.load("/content/drive/My Drive/Python/COVID/Arrays/X_Train.npy")
@@ -100,12 +100,12 @@ X_train = X_train/255
 Y_train = np.load("/content/drive/My Drive/Python/COVID/Arrays/Y_Train.npy")
 ```
 
-**3º Passo**
-#### Dividir os dados em dados de treinamento e dados de teste
+**3º Step**
+#### Split data into training data and test data
 
-20% dos dados referentes às imagens foram separados para o teste do modelo. A função abaixo retorna quatro valores que foram associados a quatro variáveis, a saber: “X_train”, “X_test”, “Y_train” e “Y_test”. Respectivamente, as duas primeiras foram usadas para o treino do modelo e as duas últimas para o teste.
+20% of the data referring to the images were separated for the model test. The function below returns four values ​​that have been associated with four variables, namely: "X_train", "X_test", "Y_train" and "Y_test".
 
-É possível observar abaixo que a quantidade de casos é a mesma para o dataset referente ao treinamento (n = 117) e, também, para o teste (n = 30).
+It is possible to observe below that the number of cases is the same for the training dataset (n = 117) and also for the test (n = 30).
 
 ``` python
 X_train,X_test,Y_train,Y_test = train_test_split(X_train,Y_train, test_size = 0.2, random_state = 40)
@@ -117,16 +117,16 @@ X_train shape: (117, 237, 237, 3) Y_train shape (117, 1)
 X_test shape: (30, 237, 237, 3) Y_test shape (30, 1)
 ```
 
-**Observação:** o parâmetro “random_state” faz com que a seleção aleatória de imagens seja a mesma toda vez que a função for executada.<br />
+**Note:** the “random_state” parameter makes the random selection of images the same every time the function is executed.<br />
 
-**4º Passo**
-#### Determinando a arquitetura do modelo que será treinado
+**4º Step**
+#### Determining the architecture of the model to be trained
 
-Foi carregado os pesos da arquitetura VGG16 a partir do dataset “imagenet”, desconsiderando o topo da rede. Além disso, foi definido o input com a dimensão das imagens do banco de imagens que utilizaremos, a saber: 237 x 237px e 3 canais de cores como profundidade. Estas informações foram associadas à variável “bModel”.
+The weights of the VGG16 architecture were loaded from the “imagenet” dataset, disregarding the top of the network. In addition, the input was defined with the size of the images in the image bank that we will use, namely: 237 x 237px and 3 color channels as depth. This information was associated with the “bModel” variable.
 
-Além disso, foi determinada a arquitetura do topo da rede, visto que foi retirado o topo da rede do dataset “imagenet”. Esta arquitetura foi associada à variável “tModel”.
+In addition, the architecture of the top of the network was determined, since the top of the network was removed from the “imagenet” dataset. This architecture was associated with the “tModel” variable.
 
-Por último, foram unidas as variáveis “bModel” e “tModel” na variável “model”. Esta última variável representa o modelo que será treinado.
+Finally, the “bModel” and “tModel” variables were merged into the “model” variable. This last variable represents the model that will be trained.
 
 ``` python
 bModel = VGG16(weights="imagenet", include_top=False,
@@ -142,12 +142,12 @@ tModel = Dense(1, activation="sigmoid")(tModel)
 model = Model(inputs=bModel.input, outputs=tModel)
 ```
 
-**5º Passo**
-#### Determinar os hyperparameters e compilar o modelo
+**5º Step**
+#### Determine the hyperparameters and compile the model
 
-Foram determinados os hyperparameters, em específico, o learning rate (“INIT_LR”), as epochs (“EPOCHS”) e o batch size (“BS”).
+The hyperparameters, in particular, the learning rate (“INIT_LR”), the epochs (“EPOCHS”) and the batch size (“BS”) were determined.
 
-Posteriormente, foi definida a função de optimização Adam (“opt”), o modelo foi compilado considerando a função de perda “binary_crossentropy” e como métrica de avaliação dos resultados, considerou-se a acurácia.
+Subsequently, the Adam optimization function (“opt”) was defined, the model was compiled considering the loss function “binary_crossentropy” and as a metric for evaluating the results, accuracy was considered.
 
 ``` python
 INIT_LR = 1e-3
@@ -162,10 +162,10 @@ model.compile(loss="binary_crossentropy", optimizer=opt,
   metrics=["accuracy"])
 ```
 
-**6º Passo**
-#### Treinar o modelo
+**6º Step**
+#### Train the model
 
-A partir do comando abaixo o modelo foi treinado, deixando 10% das imagens para a validação. As informações foram salvas na variável “x” e o modelo foi salvo no computador como “modeloc_1.hdf5”.
+From the command below, the model was trained, leaving 10% of the images for validation. The information was saved in variable “x” and the model was saved on the computer as “modeloc_1.hdf5”.
 
 ``` python
 x = model.fit(X_train, Y_train, batch_size=BS,validation_split=0.1, epochs=EPOCHS)
@@ -174,12 +174,12 @@ model.save("/content/drive/My Drive/Python/COVID/model/modeloc_1.hdf5")
 
 ```
 
-**7º Passo**
-#### Observar a acurácia do modelo e a função de perda
+**7º Step**
+#### Observe the accuracy of the model and the loss function
 
-Construímos um gráfico para analisar o histórico de acurácia dos dados de treinamento e de validação do modelo. Construímos, também, um gráfico que computa o erro da rede em relação aos dados de treinamento e validação. Estes apontam que, aparentemente, não houve overfitting, visto que as linhas de treino e validação se aproximaram.
+We built a graph to analyze the accuracy history of training data and model validation. We also built a graph that computes the network error in relation to the training and validation data. They point out that, apparently, there was no overfitting, since the training and validation lines approached.
 
-Além disso, nota-se que a acurácia do modelo foi de 98%. Ou seja, o modelo acertou 98% das imagens utilizadas no teste.
+In addition, it is noted that the model's accuracy was 98%. That is, the model hit 98% of the images used in the test.
 
 ``` python
 plt.plot(x.history['accuracy'])
@@ -211,12 +211,12 @@ model.evaluate(X_test,Y_test)
 [0.03453369066119194, 0.9818181991577148]
 ```
 
-**8º Passo**
-#### Observar quais imagens o modelo acertou
+**8º Step**
+#### Observe which images the model hit
 
-A partir da imagem abaixo é possível observar as imagens que o modelo acertou. Os “Labels” (Label Predict e Label Correct) que apresentam o mesmo nome indicam que o modelo acertou a predição. Exemplo: Label Predict = COVID e Label Correct = COVID. Nesse sentido, é possível observar que o modelo acertou 54 de 55 imagens totais.
+From the image below it is possible to see the images that the model got right. The “Labels” (Label Predict and Label Correct) that have the same name indicate that the model has correctly predicted. Example: Label Predict = COVID and Label Correct = COVID. In this sense, it is possible to observe that the model hit 54 out of 55 total images.
 
-Além disso, a figura foi salva como modelo_1.pdf no computador.
+In addition, the figure was saved as modelo_1.pdf on the computer.
 
 ``` python
 plt.figure(figsize=(20,20))
@@ -248,12 +248,12 @@ plt.savefig('/content/drive/My Drive/Python/COVID/model/modelo_1.pdf')
 <br />
 <br />
 
-**9º Passo**
-#### Construir uma matriz de confusão
+**9º Step**
+#### Build a confusion matrix
 
-O código abaixo cria uma matriz de confusão com os dados do modelo.
+The code below creates a confusion matrix with the model data.
 
-O modelo errou apenas uma classificação entre as 55 imagens utilizadas para o teste, apresentando uma acurácia de 98%. A matriz de confusão mostra que, dentre o total de imagens, 58% (n = 32) representam verdadeiros positivos, 40% (n = 22) verdadeiros negativos, 1,8% (n = 1) falsos negativos e 0% (n = 0) falsos positivos.
+The model only missed one classification among the 55 images used for the test, presenting an accuracy of 98%. The confusion matrix shows that, among the total images, 58% (n = 32) represent true positives, 40% (n = 22) true negatives, 1.8% (n = 1) false negatives and 0% (n = 0) false positives.
 
 ``` python
 ypredict = model.predict(X_test)
@@ -286,13 +286,13 @@ fig.savefig("plot.jpg")
 <br />
 <br />
 
-**Conclusão sobre o modelo 1:** A partir dos resultados preliminares é possível notar que o modelo apresenta uma acurácia elevada para classificar os pulmões normais e com COVID-19. O próximo modelo treinará com imagens de pulmões que apresentam outras infecções, com o intuito de obter um modelo capaz de diferenciar a COVID-19 de outras infecções.<br />
+**Conclusion on model 1:** From the preliminary results it is possible to notice that the model has a high accuracy to classify the lungs normal and with COVID-19. The next model will train with images of lungs that have other infections, in order to obtain a model capable of differentiating COVID-19 from other infections.<br />
 <br />
 <br />
-**Observação:** os resultados não apresentam caráter clínico, mas sim exploratório. Contudo, com o aperfeiçoamento dos modelos, estes podem trazer benefícios para o enfrentamento à COVID-19.
+**Note:** the results are not clinical, but exploratory. However, with the improvement of the models, they can bring benefits to confront COVID-19.
 <br />
 <br />
-**Bibliografia** <br />
+**Bibliography** <br />
 COHEN, Joseph; MORRISON, Paul; DAO, Lan. COVID-19 Image Data Collection. arXiv:2003.11597, 2020.<br />
 <br />
 KERMANY, Daniel; ZHANG, Kang; GOLDBAUM, Michael. Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images for Classification. Mendeley Data, v.2, 2018. Disponível em: http://dx.doi.org/10.17632/rscbjbr9sj.2
