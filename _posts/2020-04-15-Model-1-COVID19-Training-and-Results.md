@@ -1,27 +1,27 @@
 ---
 layout: post
-title: Modelo 1 - Tutorial 2 - Detecção automática de casos de COVID-19 a partir de imagens de radiografia de tórax
-subtitle: Treinamento do modelo e exposição dos resultados - Modelo 1
+title: Model 1 - Tutorial 2 - Automatic detection of COVID-19 cases from chest X-ray images
+subtitle: Model training and exposure of results - Model 1
 tags: [COVID]
 ---
 
 **Being translated!** 23/04/2020
 
 
-**Objetivo principal do projeto:** automatizar o processo de detecção de casos de COVID-19 a partir de imagens de radiografia de tórax, utilizando redes neurais convolucionais (RNC) por meio de técnicas de aprendizado profundo (deep learning). O projeto completo pode ser acessado [aqui](https://github.com/deepdados/ProjetoCOVID/blob/master/projeto_cesar_lucas_COVID.pdf)
+**Main objective of the project:** Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here](https://)
 
-**Etapas para alcançar o objetivo:**<br />
-1- [Pré-processamento dos dados](https://deepdados.github.io/2020-04-14-Modelo-1-COVID19-Pr%C3%A9-Processamento-dos-Dados/)<br /> 
-2- Treinamento do modelo e exposição dos resultados
+**Steps to reach the goal:**<br />
+1- [Data pre-processing](https://deepdados-en.github.io/2020-04-23-Model-1-COVID19-Pre-Processing-data/)<br /> 
+2- Model training and exposure of results
 
 
-**Etapa 2 - Treinamento do modelo e exposição dos resultados**
+**Step 2 - Model training and exposure of results**
 
-*Bases de dados utilizadas:*<br />
-- Imagens de raio X e tomografias computadorizadas de tórax de indivíduos infectados com COVID-19 (COHE; MORRISON; DAO, 2020): [link](https://github.com/ieee8023/covid-chestxray-dataset)<br />
-- Imagens de pulmões de indivíduos sem nenhuma infecção (KERMANY; ZHANG; GOLDBAUM, 2018): [link](https://data.mendeley.com/datasets/rscbjbr9sj/2)<br />
+*Databases used:*<br />
+- X-ray images and chest CT scans of individuals infected with COVID-19 (COHE; MORRISON; DAO, 2020): [link](https://github.com/ieee8023/covid-chestxray-dataset)<br />
+- Images of lungs of individuals without any infection (KERMANY; ZHANG; GOLDBAUM, 2018): [link](https://data.mendeley.com/datasets/rscbjbr9sj/2)<br />
 
-*Pacotes utilizados:*<br />
+*Packages used:*<br />
 - Pandas<br />
 - Os <br />
 - PIL <br />
@@ -35,11 +35,11 @@ tags: [COVID]
 - Seaborn<br />
 
 
-*Código utilizado no projeto:*<br />
-O notebook com todos os códigos utilizados nesta etapa está disponível [aqui](https://github.com/deepdados/ProjetoCOVID/blob/master/treinamento_resultados_COVID_modelo1.ipynb)<br />
-**Observação:** a numeração e título de cada passo descrito neste tutorial, corresponde com a numeração e título contidos no notebook.
+*Code used in the project:*<br />
+The notebook with all the codes used in this step is available [here](https://)<br />
+**Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
-*Passos que serão seguidos:*<br />
+*Steps to be followed:*<br />
 **1º Passo** – [Importar as bibliotecas que serão utilizadas](#importar-as-bibliotecas-que-serão-utilizadas)<br />
 **2º Passo** – [Carregar os arrays construídos na etapa referente ao pré-processamento de dados e normalizar os dados do input](#carregar-os-arrays-construídos-na-etapa-referente-ao-pré-processamento-de-dados-e-normalizar-os-dados-do-input)<br />
 **3º Passo** – [Dividir os dados em dados de treinamento e dados de teste](#dividir-os-dados-em-dados-de-treinamento-e-dados-de-teste)<br />
