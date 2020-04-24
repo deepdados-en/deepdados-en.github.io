@@ -36,7 +36,7 @@ tags: [COVID]
 
 
 *Code used in the project:*<br />
-The notebook with all the codes used in this step is available [here](https://)<br />
+The notebook with all the codes used in this step is available [here](https://github.com/deepdados-en/ProjetoCOVID/blob/master/treinamento_resultados_COVID_modelo1_en.ipynb)<br />
 **Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
 *Steps to be followed:*<br />
