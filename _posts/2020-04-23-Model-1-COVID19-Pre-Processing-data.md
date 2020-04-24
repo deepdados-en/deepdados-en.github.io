@@ -36,7 +36,7 @@ The notebook with all the codes used in this step is available [here](https://gi
 **2º Passo** – [Load the dataframe for lung images of individuals with COVID-19](#load-the-dataframe-for-lung-images-of-individuals-with-covid-19)<br />
 **3º Passo** – [Analysis of the "df" dataframe](#analysis-of-the-df-dataframe)<br />
 **4º Passo** – [Select the cases related to COVID-19 on the “df” dataframe](#select-the-cases-related-to-covid-19-on-the-df-dataframe)<br />
-**5º Passo** – [Analysis of the “df_covid” dataframe](#analysis-of-the-df-covid-dataframe)<br />
+**5º Passo** – [Analysis of the “df_covid” dataframe](#analysis-of-the-dfcovid-dataframe)<br />
 **6º Passo** – [Create a list to add the values of the variable/column “filename”](#create-a-list-to-add-the-values-of-the-variablecolumn-filename)<br />
 **7º Passo** – [Create a list with only the image formats that exist in the image folder](#create-a-list-with-only-the-image-formats-that-exist-in-the-image-folder)<br />
 **8º Passo** – [Create a function to open the images, observe their dimensions and, later, save this data in a dataframe](#create-a-function-to-open-the-images-observe-their-dimensions-and-later-save-this-data-in-a-dataframe)<br />
@@ -159,8 +159,9 @@ Knowing that this action will be used frequently in the data pre-processing step
 
 ``` python
 def df_dimensao(folder_das_imagens, lista_nome_imagens):
-    """Função para criar um dataframe com as dimensões das imagens de uma pasta.
-    Parâmetros:
+    """Function to create a dataframe with the original dimensions of the images in a given folder.
+    
+    Parameters:
     
     folder_das_imagens(str): colocar a pasta onde as imagens estão salvas
     lista_nome_imagens(list): colocar a lista com o nome das imagens
