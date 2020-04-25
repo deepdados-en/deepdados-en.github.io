@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Model 2 - Tutorial 2 - Automatic detection of COVID-19 cases from chest X-ray images
+title: Model 2 - Tutorial 1 - Automatic detection of COVID-19 cases from chest X-ray images
 subtitle: Data pre-processing - Model 2
 tags: [COVID]
 ---
@@ -32,28 +32,28 @@ The notebook with all the codes used in this step is available [here](https://)<
 **Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
 *Steps to be followed:*<br />
-**1º Passo** – [Importar as bibliotecas que serão utilizadas](#importar-as-bibliotecas-que-serão-utilizadas)<br />
-**2º Passo** – [Carregar o dataframe referente às imagens de pulmões de indivíduos com COVID-19](#carregar-o-dataframe-referente-às-imagens-de-pulmões-de-indivíduos-com-covid-19)<br />
-**3º Passo** – [Análise do dataframe “df”](#análise-do-dataframe-df)<br />
-**4º Passo** – [Selecionar os casos relacionados à COVID-19 no dataframe “df”](#selecionar-os-casos-relacionados-à-covid-19-no-dataframe-df)<br />
-**5º Passo** – [Análise do dataframe “df_covid”](#análise-do-dataframe-df_covid)<br />
-**6º Passo** – [Criar uma lista para adicionar os valores da variável/coluna “filename”](#criar-uma-lista-para-adicionar-os-valores-da-variávelcoluna-filename)<br />
-**7º Passo** – [Criar uma lista apenas com os formatos de imagens que existem na pasta de imagem](#criar-uma-lista-apenas-com-os-formatos-de-imagens-que-existem-na-pasta-de-imagem)<br />
-**8º Passo** – [Criar uma função para abrir as imagens, observar as suas dimensões e, posteriormente, salvar estes dados em um dataframe](#criar-uma-função-para-abrir-as-imagens-observar-as-suas-dimensões-e-posteriormente-salvar-estes-dados-em-um-dataframe)<br />
-**9º Passo** – [Criar uma variável que contenha como valor o endereço da pasta onde as imagens estão salvas](#criar-uma-variável-que-contenha-como-valor-o-endereço-da-pasta-onde-as-imagens-estão-salvas)<br />
-**10º Passo** – [Utilizar a função criada para observar a dimensão das imagens](#utilizar-a-função-criada-para-observar-a-dimensão-das-imagens)<br />
-**11º Passo** – [Converter todas as imagens para 237 x 237px .png](#converter-todas-as-imagens-para-237-x-237px-png)<br />
-**12º Passo** – [Criar uma lista com as imagens que serão deletadas da pasta](#criar-uma-lista-com-as-imagens-que-serão-deletadas-da-pasta)<br />
-**13º Passo** – [Abrir as imagens de pulmões de indivíduos sem infecção e criar uma lista com o nome das imagens que existem na pasta de imagem](#abrir-as-imagens-de-pulmões-de-indivíduos-sem-infecção-e-criar-uma-lista-com-o-nome-das-imagens-que-existem-na-pasta-de-imagem)<br />
-**14º Passo** – [Converter todas as imagens de pulmões de indivíduos não infectados para 237 x 237px .png](#converter-todas-as-imagens-de-pulmões-de-indivíduos-não-infectados-para-237-x-237px-png)<br />
-**15º Passo** - [Abrir as imagens de pulmões de indivíduos com outras infecções e criar uma lista com o nome das imagens que existem na pasta de imagem](#abrir-as-imagens-de-pulmões-de-indivíduos-com-outras-infecções-e-criar-uma-lista-com-o-nome-das-imagens-que-existem-na-pasta-de-imagem)<br />
-**16º Passo** - [Converter todas as imagens de pulmões de indivíduos com outras infecções para 237 x 237px .png](#converter-todas-as-imagens-de-pulmões-de-indivíduos-com-outras-infecções-para-237-x-237px-png)<br />
-**17º Passo** – [Abrir as imagens dos pulmões de indivíduos infectados com COVID-19 em uma lista e transformar estas em um array (matriz de valores dos pixels que representam a imagem)](#abrir-as-imagens-dos-pulmões-de-indivíduos-infectados-com-covid-19-em-uma-lista-e-transformar-estas-em-um-array-matriz-de-valores-dos-pixels-que-representam-a-imagem)<br />
-**18º Passo** – [Abrir as imagens dos pulmões de indivíduos sem infecções em uma lista e transformar estas em um array (matriz de valores dos pixels que representam a imagem)](#abrir-as-imagens-dos-pulmões-de-indivíduos-sem-infecções-em-uma-lista-e-transformar-estas-em-um-array-matriz-de-valores-dos-pixels-que-representam-a-imagem)<br />
-**19º Passo** - [Abrir as imagens dos pulmões de indivíduos com outras infecções em uma lista e transformar estas em um array (matriz de valores dos pixels que representam a imagem)](#abrir-as-imagens-dos-pulmões-de-indivíduos-com-outras-infecções-em-uma-lista-e-transformar-estas-em-um-array-matriz-de-valores-dos-pixels-que-representam-a-imagem)<br />
-**20º Passo** - [Agrupar os arrays em um único array contendo informações sobre as imagens de COVID-19, normal e com outras infecções](#agrupar-os-arrays-em-um-único-array-contendo-informações-sobre-as-imagens-de-covid-19-normal-e-com-outras-infecções)<br />
-**21º Passo** - [Indicar os casos que são COVID-19, os que são normais e os casos com outras infecções e criar um array](#indicar-os-casos-que-são-covid-19-os-que-são-normais-e-os-casos-com-outras-infecções-e-criar-um-array)<br />
-**22º Passo** – [Salvar os arrays em .npy](#salvar-os-arrays-em-npy)<br />
+**1º Passo** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
+**2º Passo** – [Load the dataframe for lung images of individuals with COVID-19](#load-the-dataframe-for-lung-images-of-individuals-with-covid-19)<br />
+**3º Passo** – [Analysis of the “df” dataframe](#analysis-of-the-df-dataframe)<br />
+**4º Passo** – [Select the cases related to COVID-19 on the “df” dataframe](#select-the-cases-related-to-covid-19-on-the-df-dataframe)<br />
+**5º Passo** – [Analysis of the “df_covid” dataframe](#analysis-of-the-df_covid-dataframe)<br />
+**6º Passo** – [Create a list to add the values of the variable/column “filename”](#create-a-list-to-add-the-values-of-the-variablecolumn-filename)<br />
+**7º Passo** – [Create a list with only the image formats that exist in the image folder](#create-a-list-with-only-the-image-formats-that-exist-in-the-image-folder)<br />
+**8º Passo** – [Create a function to open the images, observe their dimensions and, later, save this data in a dataframe](#create-a-function-to-open-the-images-observe-their-dimensions-and-later-save-this-data-in-a-dataframe)<br />
+**9º Passo** – [Create a variable that contains as value the address of the folder where the images are saved](#create-a-variable-that-contains-as-value-the-address-of-the-folder-where-the-images-are-saved)<br />
+**10º Passo** – [Use the function created to observe the size of the images](#use-the-function-created-to-observe-the-size-of-the-images)<br />
+**11º Passo** – [Convert all images to 237 x 237px .png](#convert-all-images-to-237-x-237px-png)<br />
+**12º Passo** – [Create a list of the images that will be deleted from the folder](#create-a-list-of-the-images-that-will-be-deleted-from-the-folder)<br />
+**13º Passo** – [Open the lung images of individuals without infection and create a list with the name of the images that exist in the image folder](#open-the-lung-images-of-individuals-without-infection-and-create-a-list-with-the-name-of-the-images-that-exist-in-the-image-folder)<br />
+**14º Passo** – [Convert all images of lungs from uninfected individuals to 237 x 237px .png](#convert-all-images-of-lungs-from-uninfected-individuals-to-237-x-237px-png)<br />
+**15º Passo** - [Open the lung images of individuals with other infections and create a list with the name of the images that exist in the image folder](#open-the-lung-images-of-individuals-with-other-infections-and-create-a-list-with-the-name-of-the-images-that-exist-in-the-image-folder)<br />
+**16º Passo** - [Convert all lung images of individuals with other infections to 237 x 237px .png](#convert-all-lung-images-of-individuals-with-other-infections-to-237-x-237px-png)<br />
+**17º Passo** – [Open the images of the lungs of individuals infected with COVID-19 in a list and transform them into an array (matrix of pixel values that represent the image)](#open-the-images-of-the-lungs-of-individuals-infected-with-covid-19-in-a-list-and-transform-them-into-an-array-matrix-of-pixel-values-that-represent-the-image))<br />
+**18º Passo** – [Open the images of the lungs of individuals without infections in a list and transform them into an array (Matrix of values of the pixels that represent the image)](#open-the-images-of-the-lungs-of-individuals-without-infections-in-a-list-and-transform-them-into-an-array-matrix-of-values-of-the-pixels-that-represent-the-image)<br />
+**19º Passo** - [Open the images of the lungs of individuals with other infections in a list and transform them into an array (array of pixel values representing the image)](#open-the-images-of-the-lungs-of-individuals-with-other-infections-in-a-list-and-transform-them-into-an-array-array-of-pixel-values-representing-the-image)<br />
+**20º Passo** - [Group arrays into a single array containing information about COVID-19, normal lung images, and with other infections](#group-arrays-into-a-single-array-containing-information-about-covid-19-normal-lung-images-and-with-other-infections)<br />
+**21º Passo** - [Indicate the cases that are COVID-19, the ones that are normal and the cases with other infections and create an array](#indicate-the-cases-that-are-covid-19-the-ones-that-are-normal-and-the-cases-with-other-infections-and-create-an-array)<br />
+**22º Passo** – [Save arrays to .npy](#save-arrays-to-npy)<br />
 
 **Tutorial 1:**
 
