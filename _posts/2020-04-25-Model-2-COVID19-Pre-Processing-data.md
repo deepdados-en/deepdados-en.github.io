@@ -1,37 +1,37 @@
 ---
 layout: post
-title: Modelo 2 - Tutorial 1 - Detecção automática de casos de COVID-19 a partir de imagens de radiografia de tórax
-subtitle: Pré-processamento dos dados - Modelo 2
+title: Model 2 - Tutorial 2 - Automatic detection of COVID-19 cases from chest X-ray images
+subtitle: Data pre-processing - Model 2
 tags: [COVID]
 ---
 
 **Being translated!** 23/04/2020
 
-**Objetivo principal do projeto:** automatizar o processo de detecção de casos de COVID-19 a partir de imagens de radiografia de tórax, utilizando redes neurais convolucionais (RNC) por meio de técnicas de aprendizado profundo (deep learning). O projeto completo pode ser acessado [aqui](https://github.com/deepdados/ProjetoCOVID/blob/master/projeto_cesar_lucas_COVID.pdf)
+Main objective of the project: Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here](https://)
 
 **Etapas para alcançar o objetivo:**<br />
-1- Pré-processamento dos dados<br />
-[2- Treinamento do modelo e exposição dos resultados](https://deepdados.github.io/2020-04-21-Modelo-2-COVID19-Treinamento-e-Resultados/)
+1- Data pre-processing<br />
+[2- Model training and exposure of results](https://)
 
 
-**Etapa 1 - Pré-processamento dos dados**
+**Step 1 - Data pre-processing**
 
-*Bases de dados utilizadas:*<br />
-- Imagens de raio X e tomografias computadorizadas de tórax de indivíduos infectados com COVID-19 (COHE; MORRISON; DAO, 2020): [link](https://github.com/ieee8023/covid-chestxray-dataset)<br />
-- Imagens de pulmões de indivíduos sem nenhuma infecção (KERMANY; ZHANG; GOLDBAUM, 2018): [link](https://data.mendeley.com/datasets/rscbjbr9sj/2)<br />
+*Databases used:*<br />
+- X-ray images and chest CT scans of individuals infected with COVID-19 (COHE; MORRISON; DAO, 2020): [link](https://github.com/ieee8023/covid-chestxray-dataset)<br />
+- Images of lungs of individuals without any infection and with other infections (different from COVID-19) (KERMANY; ZHANG; GOLDBAUM, 2018): [link](https://data.mendeley.com/datasets/rscbjbr9sj/2)<br />
 
-*Pacotes utilizados:*<br />
+*Packages used:*<br />
 - Pandas<br />
 - Os<br />
 - PIL<br />
 - Numpy<br />
 - CV2<br />
 
-*Código utilizado no projeto:*<br />
-O notebook com todos os códigos utilizados nesta etapa está disponível [aqui](https://github.com/deepdados/ProjetoCOVID/blob/master/preProcessamento_COVID_modelo2.ipynb)<br />
-**Observação:** a numeração e título de cada passo descrito neste tutorial, corresponde com a numeração e título contidos no notebook.
+*Code used in the project:*<br />
+The notebook with all the codes used in this step is available [here](https://)<br />
+**Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
-*Passos que serão seguidos:*<br />
+*Steps to be followed:*<br />
 **1º Passo** – [Importar as bibliotecas que serão utilizadas](#importar-as-bibliotecas-que-serão-utilizadas)<br />
 **2º Passo** – [Carregar o dataframe referente às imagens de pulmões de indivíduos com COVID-19](#carregar-o-dataframe-referente-às-imagens-de-pulmões-de-indivíduos-com-covid-19)<br />
 **3º Passo** – [Análise do dataframe “df”](#análise-do-dataframe-df)<br />
@@ -57,10 +57,10 @@ O notebook com todos os códigos utilizados nesta etapa está disponível [aqui]
 
 **Tutorial 1:**
 
-**1º Passo** 
-#### Importar as bibliotecas que serão utilizadas
+**1º Step** 
+#### Import the libraries to be used
 
-Importamos as bibliotecas Pandas, Os, PIL, Numpy e CV2 visto que nos apoiaremos nestas para realizar o pré-processamento dos dados do modelo referente à COVID-19.
+We imported the Pandas, Os, PIL, Numpy, and CV2 libraries as we will rely on them to pre-process the model data for COVID-19.
 
 ``` python
 import pandas as pd
@@ -70,23 +70,23 @@ import numpy as np
 import cv2
 ```
 
-**Observação:** a biblioteca “Pandas” foi importada como “pd”, com o intuito de agilizar a escrita do código. Ou seja, ao invés de digitar “pandas” ao usá-la, digitarei apenas “pd”. O mesmo foi feito com a biblioteca “numpy”. Além disso, a biblioteca "PIL" não foi importada completamente, pois não utilizaremos todas as funções ali contidas. Desta forma, facilita a utilização da biblioteca e o processamento dos códigos/dados.
+**Note:** the “Pandas” library was imported as “pd”, in order to speed up the writing of the code. That is, instead of typing “pandas” when using it, I will just type “pd”. The same was done with the “numpy” library. In addition, the “PIL” library has not been imported completely, as we will not use all the functions contained therein. In this way, it facilitates the use of the library and the processing of codes/data.
 
-**2º Passo**
-#### Carregar o dataframe referente às imagens de pulmões de indivíduos com COVID-19
+**2º Step**
+#### Load the dataframe for lung images of individuals with COVID-19
 
-Carregamos o arquivo em .csv, chamado “metadata”, que acompanha o banco de imagens disponibilizado pelos pesquisadores (COHE; MORRISON; DAO, 2020).<br />
+We load the file in .csv, called “metadata”, which accompanies the image bank provided by the researchers (COHE; MORRISON; DAO, 2020).<br />
 <br />
-O comando abaixo nomeia este dataframe de “df” ao carregá-lo. Entre os parênteses, você deve colocar o endereço que se encontra este arquivo.
+The command below names this dataframe “df” when loading it. In parentheses, you must enter the address of this file.
 
 ``` python
 df = pd.read_csv("/Users/Neto/Desktop/Aprendizados/2020/Kaggle/corona_deep_learning/covid-chestxray-dataset-master/metadata.csv")
 ```
 
-**3º Passo**
-#### Análise do dataframe “df”
+**3º Step**
+#### Analysis of the “df” dataframe
 
-Geramos alguns dados descritivos com o intuito de descobrir quantas imagens de COVID-19 estão disponíveis no dataframe (df). Para tanto, pedimos uma contagem de valores a partir da variável/coluna “finding”. Esta variável contém o diagnóstico relacionado a cada imagem de pulmão.
+We generated some descriptive data in order to find out how many images of COVID-19 are available on the dataframe (df). For that, we ask for a count of values from the variable/column “finding”. This variable contains the diagnosis related to each lung image.
 
 ``` python
 df.finding.value_counts()
@@ -104,21 +104,21 @@ Legionella          2
 Klebsiella          1
 Name: finding, dtype: int64
 ```
-É possível notar a partir dos dados que 188 imagens se referem à COVID-19.<br />
+It is possible to notice from the data that 188 images refer to COVID-19.<br />
 
-**4º Passo**
-#### Selecionar os casos relacionados à COVID-19 no dataframe “df”
+**4º Step**
+#### Select the cases related to COVID-19 on the “df” dataframe
 
-Separamos apenas os casos da variável/coluna “finding” no dataframe “df” que eram COVID-19, visto que utilizaremos apenas estes casos no modelo. Salvamos esta seleção em um novo dataframe nomeado “df_covid”.
+We separated only the cases of the variable/column “finding” in the dataframe “df” that were COVID-19 since we will only use these cases in the model. We saved this selection in a new dataframe named “df_covid”.
 
 ``` python
 df_covid = df[df["finding"] == "COVID-19"]
 ```
 
-**5º Passo**
-#### Análise do dataframe “df_covid”
+**5º Step**
+#### Analysis of the “df_covid” dataframe
 
-Pedimos para observar o dataframe “df_covid”, com o intuito de analisar se a seleção dos casos de COVID-19 foi realizada corretamente. Para tanto, pedimos para ver o final deste dataframe. Além disso, solicitamos que apenas as variáveis/colunas “finding” e “filename” fossem mostradas. A “finding”se refere aos casos de COVID-19 selecionados e a “filename” indica o nome das imagens de radiografia de COVID-19 disponibilizadas pelos autores do banco em questão (COHE; MORRISON; DAO, 2020). Esta última informação foi solicitada, visto que será utilizada no próximo passo.
+We asked to observe the “df_covid” dataframe, in order to analyze whether the selection of COVID-19 cases was carried out correctly. For this, we ask to see the end of this dataframe. In addition, we request that only the variables/columns “finding” and “filename” be shown. The “finding” refers to the selected COVID-19 cases and the “filename” indicates the name of the COVID-19 radiography images made available by the authors of the bank in question (COHE; MORRISON; DAO, 2020). This last information was requested, as it will be used in the next step.
 
 ``` python
 df_covid[["finding","filename"]].tail()
@@ -130,19 +130,19 @@ df_covid[["finding","filename"]].tail()
 311	COVID-19	covid-19-pneumonia-bilateral.jpg
 ```
 
-**6º Passo**
-#### Criar uma lista para adicionar os valores da variável/coluna “filename”
+**6º Step**
+#### Create a list to add the values of the variable/column “filename”
 
-Criamos uma lista a partir da variável/coluna “filename” localizada no dataframe “df_covid”. Esta foi denominada “imagensCOVID”. Esta lista apresenta apenas os nomes das imagens com pulmões de indivíduos infectados pelo vírus COVID-19. Esta lista foi criada para facilitar a seleção das imagens que utilizaremos para treinar o modelo.
+We created a list from the variable/column “filename” located in the dataframe “df_covid”. This was called “imagesCOVID”. This list only shows the names of the images with the lungs of individuals infected with the COVID-19 virus. This list was created to facilitate the selection of the images that we will use to train the model.
 
 ``` python
 imagensCOVID = df_covid["filename"].tolist()
 ```
 
-**7º Passo**
-#### Criar uma lista apenas com os formatos de imagens que existem na pasta de imagem
+**7º Step**
+#### Create a list with only the image formats that exist in the image folder
 
-Ao checar manualmente a pasta onde as imagens se encontram, notou-se apenas os formatos “.jpg” e “.png”. No entanto, a variável/coluna “filename” tem entre os seus valores, imagens com extensão “.gz”. Dessa forma, criamos uma lista (“imagensCovid”) apenas com o nome das imagens nos formatos existentes na pasta (“.jpg” e “.png”).
+When manually checking the folder where the images are located, only the formats “.jpg” and “.png” were noticed. However, the variable/column “filename” has among its values, images with extension “.gz”. Thus, we created a list (“imagensCovid”) with only the name of the images in the formats existing in the folder (“.jpg” and “.png”).
 
 ``` python
 imagensCovid = []
@@ -155,15 +155,16 @@ for imagem in imagensCOVID:
 print(len(imagensCovid))
 ```
 
-**8º Passo**
-#### Criar uma função para abrir as imagens, observar as suas dimensões e, posteriormente, salvar estes dados em um dataframe
+**8º Step**
+#### Create a function to open the images, observe their dimensions and, later, save this data in a dataframe
 
-Sabendo que esta ação será utilizada frequentemente nas etapas de pré-processamento de dados dos modelos que serão treinados, criamos uma função para facilitar a realização deste processo. Assim, a função abaixo (“df_dimensao”) define a criação de um dataframe com as dimensões das imagens localizadas em uma determinada pasta.
+Knowing that this action will be used frequently in the data pre-processing steps of the models that will be trained, we created a function to facilitate this process. Thus, the function below (“df_dimensao”) defines the creation of a dataframe with the dimensions of the images located in a given folder.
 
 ``` python
 def df_dimensao(folder_das_imagens, lista_nome_imagens):
-    """Função para criar um dataframe com as dimensões das imagens de uma pasta.
-    Parâmetros:
+    """Function to create a dataframe with the original dimensions of the images in a given folder.
+    
+    Parameters:
     
     folder_das_imagens(str): colocar a pasta onde as imagens estão salvas
     lista_nome_imagens(list): colocar a lista com o nome das imagens
@@ -197,21 +198,21 @@ def df_dimensao(folder_das_imagens, lista_nome_imagens):
     return df_dims
 ```
 
-**9º Passo**
-#### Criar uma variável que contenha como valor o endereço da pasta onde as imagens estão salvas
+**9º Step**
+#### Create a variable that contains as value the address of the folder where the images are saved
 
-Com o intuito de utilizar a função criada no Passo 8, em específico o parâmetro “folder_das_imagens(str)”, devemos ter uma variável string que indique o endereço das imagens no computador. Para tanto, o código abaixo cria uma variável (“rootFolder”) indicando esta localização.
+In order to use the function created in Step 8, specifically the parameter “folder_das_imagens (str)”, we must have a string variable that indicates the address of the images on the computer. For this, the code below creates a variable (“rootFolder”) indicating this location.
 
 ``` python
 rootFolder = "/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/covid-chestxray-dataset-master/images"
 ```
 
-**Observação:** em relação ao outro atributo da função denominado “lista_nome_imagens”, utilizaremos a lista criada no Passo 7 (“imagensCovid”).<br />
+**Note:** in relation to the other function attribute called “lista_nome_imagens”, we will use the list created in Step 7 (“imagensCovid”).<br />
 
-**10º Passo**
-#### Utilizar a função criada para observar a dimensão das imagens
+**10º Step**
+#### Use the function created to observe the size of the images
 
-A partir da função criada, salvamos os valores na variável “dimensão”. Abaixo é possível observar os nomes de cada figura e a sua dimensão (largura x altura) em pixels.
+From the created function, we save the values in the “dimensao” variable. Below you can see the names of each figure and its dimension (width x height) in pixels.
 
 ``` python
 dimensao = df_dimensao(rootFolder, imagensCovid)
@@ -232,14 +233,14 @@ print(dimensao)
 [216 rows x 3 columns]
 ```
 
-**Observação:** este passo é importante, pois para executar o modelo, todas as imagens devem ter a mesma dimensão.<br />
+**Note:** this step is important, because to execute the model, all images must have the same dimension.<br />
 
-**11º Passo**
-#### Converter todas as imagens para 237 x 237px .png
+**11º Step**
+#### Convert all images to 237 x 237px .png
 
-Visto que para rodar o modelo precisamos ter todas as imagens com a mesma dimensão, optamos por reduzir todas para a dimensão da menor figura disponível no banco de imagens. Além disso, para manter um padrão, alteramos o formato para “.png” de todas as figuras, visto que algumas eram “.jpg”.
+Since to run the model we need to have all images with the same dimension, we chose to reduce them all to the dimension of the smallest figure available in the image bank. In addition, to maintain a standard, we changed the format to “.png” for all figures, since some were “.jpg”.
 
-O código abaixo redimensiona as imagens para 237 x 237px, salva elas em uma outra pasta e executa a função que construímos no Passo 8 para observar se todas as dimensões foram alteradas. 
+The code below resizes the images to 237 x 237px, saves them in another folder and executes the function that we built in Step 8 to see if all dimensions have been changed.
 
 ``` python
 for imagem in imagensCovid:
@@ -270,12 +271,12 @@ print(df_redimensao)
 [216 rows x 3 columns]
 ```
 
-**Observação:** como é possível notar, todas as figuras apresentam a mesma dimensão (largura x altura).<br />
+**Note:** as you can see, all figures have the same dimension (width x height).<br />
 
-**12º Passo**
-#### Criar uma lista com as imagens que serão deletadas da pasta
+**12º Step**
+#### Create a list of the images that will be deleted from the folder
 
-Criamos uma lista com o nome das imagens que foram deletadas da pasta. Os autores deste modelo decidiram não incluir as imagens laterais e de tomografia computadorizada existentes no banco de imagens original. Assim, a variável “listaImagemDeletar” apresenta como valor uma lista com o nome destas imagens.
+We created a list with the name of the images that were deleted from the folder. The authors of this model decided not to include the lateral and computed tomography images existing in the original image bank. Thus, the variable “listaImagemDeletar” presents a list with the name of these images as a value.
 
 ``` python
 listaImagemDeletar = os.listdir("/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/covid-chestxray-dataset-master/deletadas")
@@ -322,10 +323,10 @@ listaImagemDeletar = ['covid-19-pneumonia-30-L.jpg_resize_237_237.png',
  'covid-19-pneumonia-7-L.jpg_resize_237_237.png']
 ```
 
-**13º Passo**
-#### Abrir as imagens de pulmões de indivíduos sem infecção e criar uma lista com o nome das imagens que existem na pasta de imagem
+**13º Step**
+#### Open the lung images of individuals without infection and create a list with the name of the images that exist in the image folder
 
-Após criar uma variável denominada “pastaTreinoNormal” com o endereço da pasta com as imagens de pulmões de indivíduos sem infecção, criamos uma lista (“listaImagensTreino”) apenas com o nome e formato destas imagens.
+After creating a variable called “pastaTreinoNormal” with the address of the folder with the images of the lungs of individuals without infection, we created a list (“listaImagensTreino”) with only the name and format of these images.
 
 ``` python
 pastaTreinoNormal = "/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/chest_xray/train/NORMAL"
@@ -333,12 +334,12 @@ pastaTreinoNormal = "/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/ch
 listaImagensTreino = os.listdir(pastaTreinoNormal)
 ```
 
-**14º Passo**
-#### Converter todas as imagens de pulmões de indivíduos não infectados para 237 x 237px .png
+**14º Step**
+#### Convert all images of lungs from uninfected individuals to 237 x 237px .png
 
-Foram redimensionadas as imagens de pulmões normais para a mesma dimensão das imagens dos pulmões com COVID-19: a saber, 237 x 237px. Para manter o mesmo padrão, alteramos o formato para “.png” de todas as figuras. É importante destacar que selecionamos através do código abaixo apenas as 100 primeiras imagens da pasta. Isto foi realizado para manter o treino com uma quantidade de imagem similar de indivíduos sem nenhuma infecção e com COVID-19. 
+The images of normal lungs were resized to the same dimension as the lung images with COVID-19: namely, 237 x 237px. To maintain the same pattern, we changed the format to “.png” for all figures. It is important to note that we selected only the first 100 images in the folder using the code below. This was done to maintain the training with a similar amount of image of individuals without any infection and with COVID-19.
 
-Além disso, executamos a função que construímos no Passo 8 para observar se todas as dimensões foram alteradas.
+In addition, we run the function we built in Step 8 to see if all dimensions have changed.
 
 ``` python
 listaCemImagens = listaImagensTreino[0:100]
@@ -369,12 +370,12 @@ print(df_redimensao)
 [100 rows x 3 columns]
 ```
 
-**Observação:** como é possível notar, todas as figuras apresentam a mesma dimensão (largura x altura).<br />
+**Note:** as you can see, all figures have the same dimension (width x height).<br />
 
-**15º Passo**
-#### Abrir as imagens de pulmões de indivíduos com outras infecções e criar uma lista com o nome das imagens que existem na pasta de imagem
+**15º Step**
+#### Open the lung images of individuals with other infections and create a list with the name of the images that exist in the image folder
 
-Após criar uma variável denominada “pastaTreinoOutrasInfeccoes” com o endereço da pasta com as imagens de pulmões de indivíduos outras infecções (isto é, sem ser a COVID-19), criamos uma lista (“listaImagensTreinoOutrasInfeccoes”) apenas com o nome e formato destas imagens.
+After creating a variable called “pastaTreinoOutrasInfeccoes” with the address of the folder with the images of lungs of individuals with other infections (that is, without the COVID-19), we created a list (“listaImagensTreinoOutrasInfeccoes”) with only the name and format of these images.
 
 ``` python
 pastaTreinoOutrasInfeccoes = "/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/chest_xray/train/PNEUMONIA"
@@ -382,12 +383,12 @@ pastaTreinoOutrasInfeccoes = "/Users/cesarsoares/Documents/Python/COVID/Banco_de
 listaImagensTreinoOutrasInfeccoes = os.listdir(pastaTreinoOutrasInfeccoes)
 ```
 
-**16º Passo**
-#### Converter todas as imagens de pulmões de indivíduos com outras infecções para 237 x 237px .png
+**16º Step**
+#### Convert all lung images of individuals with other infections to 237 x 237px .png
 
-Foram redimensionadas as imagens de pulmões com outras infecções (isto é, sem ser a COVID-19) para a mesma dimensão das imagens dos pulmões com COVID-19 e normal: a saber, 237 x 237px. Para manter o mesmo padrão, alteramos o formato para “.png” de todas as figuras. É importante destacar que selecionamos através do código abaixo apenas as 100 primeiras imagens da pasta. Isto foi realizado para manter o treino com uma quantidade de imagem similar de indivíduos com outras infecções, sem nenhuma infecção e com COVID-19.
+The images of lungs with other infections (ie, other than COVID-19) were resized to the same dimension as the images of lungs with COVID-19 and normal: namely, 237 x 237px. To maintain the same pattern, we changed the format to “.png” for all figures. It is important to note that we selected only the first 100 images in the folder using the code below. This was done to maintain the training with a similar amount of image of individuals with other infections, without any infection and with COVID-19.
 
-Além disso, executamos a função que construímos no Passo 8 para observar se todas as dimensões foram alteradas.
+In addition, we run the function we built in Step 8 to see if all dimensions have changed.
 
 ```python
 listaCemImagensOutrasInfeccoes = listaImagensTreinoOutrasInfeccoes[0:100]
@@ -418,16 +419,16 @@ print(df_redimensao)
 
 [100 rows x 3 columns]
 ```
-**Observação:** como é possível notar, todas as figuras apresentam a mesma dimensão (largura x altura).<br />
+**Note:** as you can see, all figures have the same dimension (width x height).<br />
 
-**17º Passo**
-#### Abrir as imagens dos pulmões de indivíduos infectados com COVID-19 em uma lista e transformar estas em um array (matriz de valores dos pixels que representam a imagem)
+**17º Step**
+#### Open the images of the lungs of individuals infected with COVID-19 in a list and transform them into an array (matrix of pixel values that represent the image)
 
-Primeiramente, a partir das imagens redimensionadas de pulmões de indivíduos com COVID-19 obtidas no Passo 11, criamos uma variável (“imagensCovid”) com a lista de nomes destas imagens. Em seguida, utilizando a lista de imagens que não foram utilizadas no modelo (laterais e tomografia computadorizada), referente ao Passo 12, estas foram deletadas dos valores da variável (“imagensCovid”).
+First, from the resized lung images of individuals with COVID-19 obtained in Step 11, we created a variable (“imagensCovid”) with the list of names of these images. Then, using the list of images that were not used in the model (lateral and computed tomography), referring to Step 12, these were deleted from the variable values (“imagensCovid”).
 
-Posteriormente, criamos uma lista com os arrays denominada “XTrainCovid” a partir das imagens redimensionadas, isto é, uma lista com os valores referentes aos pixels que representam as figuras de pulmões de indivíduos infectados pela COVID-19.
+Subsequently, we created a list with the arrays called “XTrainCovid” from the resized images, that is, a list with the values referring to the image pixels that represent the lungs of individuals infected by COVID-19.
 
-Por último, salvamos a lista “XTrainCovid” em um array denominado “xArrayCOVID”.
+Finally, we saved the “XTrainCovid” list in an array called “xArrayCOVID”.
 
 ``` python
 imagensCovid = os.listdir("/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/covid-chestxray-dataset-master/images/images_resize")
@@ -449,16 +450,16 @@ print(xArrayCOVID.shape)
 (175, 237, 237, 3)
 ```
 
-**Observação:** como é possível notar, o array construído (“xArrayCOVID”) possui quatro dimensões. A primeira (“175”) se refere à quantidade de casos, ou seja, de imagens de indivíduos com COVID-19; a segunda (“237”) se refere à largura da imagem; a terceira (“237”) se refere à altura da imagem e; a quarta (“3”), à quantidade de canais de cores existentes nas imagens.<br />
+**Note:** as you can see, the built array (“xArrayCOVID”) has four dimensions. The first (“175”) refers to the number of cases, that is, images of individuals with COVID-19; the second (“237”) refers to the width of the image; the third (“237”) refers to the height of the image and; the fourth (“3”), the number of color channels in the images.<br />
 
-**18º Passo**
-#### Abrir as imagens dos pulmões de indivíduos sem infecções em uma lista e transformar estas em um array (matriz de valores dos pixels que representam a imagem)
+**18º Step**
+#### Open the images of the lungs of individuals without infections in a list and transform them into an array (Matrix of values of the pixels that represent the image)
 
-Primeiramente, a partir das imagens redimensionadas de pulmões de indivíduos sem infecções obtidas no Passo 13, criamos uma variável (“imagensNormal”) com a lista de nomes destas imagens.
+First, from the resized images of the lungs of individuals without infections obtained in Step 13, we created a variable (“imagensNormal”) with the list of names of these images.
 
-Em um segundo momento, criamos uma lista com os arrays denominada “XTrainNormal” a partir das imagens redimensionadas, isto é, uma lista com os valores referentes aos pixels que representam as figuras de pulmões de indivíduos sem infecções.
+In a second step, we created a list with the arrays called “XTrainNormal” from the resized images, that is, a list with the values referring to the image pixels that represent the lungs of individuals without infections.
 
-Por último, salvamos a lista “XTrainNormal” em um array denominado “xArrayNormal”.
+Finally, we save the “XTrainNormal” list in an array called “xArrayNormal”.
 
 ``` python
 imagensNormal = os.listdir("/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/chest_xray/train/NORMAL/images_resize_normal")
@@ -479,16 +480,16 @@ print(xArrayNormal.shape)
 (100, 237, 237, 3)
 ```
 
-**Observação:** como é possível notar, o array construído (“xArrayNormal”) possui quatro dimensões. A primeira (“100”) se refere à quantidade de casos, ou seja, de imagens de indivíduos sem infecções; a segunda (“237”) se refere à largura da imagem; a terceira (“237”) se refere à altura da imagem e; a quarta (“3”), à quantidade de canais de cores existentes nas imagens.<br />
+**Note:** as you can see, the built array (“xArrayNormal”) has four dimensions. The first (“100”) refers to the number of cases, that is, images of individuals without infections; the second (“237”) refers to the width of the image; the third (“237”) refers to the height of the image and; the fourth (“3”), the number of color channels in the images.<br />
 
-**19º Passo**
-#### Abrir as imagens dos pulmões de indivíduos com outras infecções em uma lista e transformar estas em um array (matriz de valores dos pixels que representam a imagem)
+**19º Step**
+#### Open the images of the lungs of individuals with other infections in a list and transform them into an array (array of pixel values representing the image)
 
-Primeiramente, a partir das imagens redimensionadas de pulmões de indivíduos com outras infecções obtidas no Passo 16, criamos uma variável (“imagensInfeccoes”) com a lista de nomes destas imagens.
+First, from the resized images of the lungs of individuals with other infections obtained in Step 16, we created a variable (“imagensInfeccoes”) with the list of names of these images.
 
-Em um segundo momento, criamos uma lista com os arrays denominada “XTrainInfeccoes” a partir das imagens redimensionadas, isto é, uma lista com os valores referentes aos pixels que representam as figuras de pulmões de indivíduos com outras infecções.
+In a second step, we created a list with the arrays called “XTrainInfeccoes” from the resized images, that is, a list with the values referring to the image pixels that represent the lungs of individuals with other infections.
 
-Por último, salvamos a lista “XTrainInfeccoes” em um array denominado “xArrayInfeccoes”.
+Finally, we save the list “XTrainInfeccoes” in an array called “xArrayInfeccoes”.
 
 ```python
 imagensInfeccoes = os.listdir("/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/chest_xray/train/PNEUMONIA/images_resize_infeccoes")
@@ -509,23 +510,23 @@ print(xArrayInfeccoes.shape)
 (100, 237, 237, 3)
 ```
 
-**Observação:** como é possível notar, o array construído (“xArrayInfeccoes”) possui quatro dimensões. A primeira (“100”) se refere à quantidade de casos, ou seja, de imagens de indivíduos com outras infecções; a segunda (“237”) se refere à largura da imagem; a terceira (“237”) se refere à altura da imagem e; a quarta (“3”), à quantidade de canais de cores existentes nas imagens.<br />
+**Note:** as you can see, the built array (“xArrayInfeccoes”) has four dimensions. The first (“100”) refers to the number of cases, that is, images of individuals without infections; the second (“237”) refers to the width of the image; the third (“237”) refers to the height of the image and; the fourth (“3”), the number of color channels in the images.<br />
 
-**20º Passo**
-#### Agrupar os arrays em um único array contendo informações sobre as imagens de COVID-19, normal e com outras infecções
+**20º Step**
+#### Group arrays into a single array containing information about COVID-19, normal lung images, and with other infections
 
-Agrupamos o array das imagens de indivíduos com COVID-19 (“xArrayCOVID”), criado no Passo 17, com o array de imagens de indivíduos sem infecções (“xArrayNormal”), criado no Passo 18, e, por último, com o array de imagens de indivíduos com outras infecções (“xArrayInfeccoes”), criado no Passo 19. Este array foi salvo na variável “X_train”.
+We group the array of images of individuals with COVID-19 (“xArrayCOVID”), created in Step 17, with the array of images of individuals without infections (“xArrayNormal”), created in Step 18, and, finally, with the array of images of individuals with other infections (“xArrayInfeccoes”), created in Step 19. This array was saved in the variable “X_train”.
 
 ``` python
 X_train = np.vstack((xArrayCOVID,xArrayNormal, xArrayInfeccoes))
 ```
 
-**21º Passo**
-#### Indicar os casos que são COVID-19, os que são normais e os casos com outras infecções e criar um array
+**21º Step**
+#### Indicate the cases that are COVID-19, the ones that are normal and the cases with other infections and create an array
 
-Foram criados três arrays. O primeiro indica a variável “dfCOVID” com o valor “1”, indicando a presença de COVID-1, e a variável “dfNormal” e a variável "dfInfeccoes" com o valor “0”, indicando a ausência de imagens com estas características. O segundo indicando "1" para "dfNormal e "0" para "dfCOVID" e "dfInfeccoes". E o terceiro "1" para "dfInfeccoes" e "0" para "dfCOVID" e "dfNormal".
+Three arrays were created. The first indicates the variable "dfCOVID" with the value "1", indicating the presence of COVID-1, and the variable "dfNormal" and the variable "dfInfeccoes" with the value "0", indicating the absence of images with these characteristics . The second indicating "1" for "dfNormal" and "0" for "dfCOVID" and "dfInfeccoes" and the third "1" for "dfInfeccoes" and "0" for "dfCOVID" and "dfNormal".
 
-Por último, agrupamos o array das imagens de indivíduos com COVID-19 (“Y_train_COVID”) com o array de imagens de indivíduos sem infecções (“Y_train_NORMAL”) com o array de indivíduos com outras infecções ("Y_train_INFECCOES"). Este array foi salvo na variável “Y_train”.
+Finally, we group the array of images of individuals with COVID-19 (“Y_train_COVID”) with the array of images of individuals without infections (“Y_train_NORMAL”) with the array of individuals with other infections ("Y_train_INFECCOES"). This array was saved in the “Y_train” variable.
 
 ``` python
 dfCOVID = np.ones((xArrayCOVID.shape[0],1))
@@ -549,19 +550,19 @@ Y_train_INFECCOES = np.vstack((dfCOVID,dfNormal, dfInfeccoes))
 Y_train = np.hstack((Y_train_COVID, Y_train_NORMAL, Y_train_INFECCOES))
 ```
 
-**22º Passo**
-#### Salvar os arrays em .npy
+**22º Step**
+#### Save arrays to .npy
 
-Para utilizar os arrays no treinamento do modelo, estes foram salvos em “X_Train.npy” e “Y_Train.npy”.
+To use the arrays in training the model, these were saved in “X_Train.npy” and “Y_Train.npy”.
 
 ``` python
 np.save("/Users/cesarsoares/Documents/Python/COVID/X_Train.npy",X_train)
 np.save("/Users/cesarsoares/Documents/Python/COVID/Y_Train.npy", Y_train)
 ```
 
-**Observação:** o X_Train será o input do modelo treinado e o Y_Train o target, ou seja, o resultado esperado do modelo.(br />
+**Note:** X_Train will be the input of the trained model and Y_Train will be the target, that is, the expected result of the model.(br />
 
-**Bibliografia** <br />
+**Bibliography** <br />
 COHEN, Joseph; MORRISON, Paul; DAO, Lan. COVID-19 Image Data Collection. arXiv:2003.11597, 2020.<br />
 <br />
 KERMANY, Daniel; ZHANG, Kang; GOLDBAUM, Michael. Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images for Classification. Mendeley Data, v.2, 2018. Disponível em: http://dx.doi.org/10.17632/rscbjbr9sj.2
