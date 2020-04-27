@@ -8,7 +8,7 @@ tags: [COVID]
 **Being translated!** 23/04/2020
 
 
-**Main objective of the project:** Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here](https://github.com/deepdados-en/ProjetoCOVID/blob/master/treinamento_resultados_COVID_modelo2-en.ipynb)
+**Main objective of the project:** Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here]()
 
 **Steps to reach the goal:**<br />
 1- [Data pre-processing](https://deepdados-en.github.io/2020-04-25-Model-2-COVID19-Pre-Processing-data/)<br /> 
@@ -35,7 +35,7 @@ tags: [COVID]
 
 
 *Code used in the project:*<br />
-The notebook with all the codes used in this step is available [here](https://)<br />
+The notebook with all the codes used in this step is available [here](https://github.com/deepdados-en/ProjetoCOVID/blob/master/treinamento_resultados_COVID_modelo2-en.ipynb)<br />
 **Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
 *Steps to be followed:*<br />
