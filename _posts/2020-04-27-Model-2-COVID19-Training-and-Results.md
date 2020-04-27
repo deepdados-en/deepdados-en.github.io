@@ -39,22 +39,22 @@ The notebook with all the codes used in this step is available [here](https://)<
 **Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
 *Steps to be followed:*<br />
-**1º Passo** – [Importar as bibliotecas que serão utilizadas](#importar-as-bibliotecas-que-serão-utilizadas)<br />
-**2º Passo** – [Carregar os arrays construídos na etapa referente ao pré-processamento de dados e normalizar os dados do input](#carregar-os-arrays-construídos-na-etapa-referente-ao-pré-processamento-de-dados-e-normalizar-os-dados-do-input)<br />
-**3º Passo** – [Dividir os dados em dados de treinamento e dados de teste](#dividir-os-dados-em-dados-de-treinamento-e-dados-de-teste)<br />
-**4º Passo** – [Determinando a arquitetura do modelo (Xception) que será treinado](#determinando-a-arquitetura-do-modelo-xception-que-será-treinado)<br />
-**5º Passo** – [Determinar os hyperparameters e compilar o modelo (Xception)](#determinar-os-hyperparameters-e-compilar-o-modelo-xception)<br />
-**6º Passo** – [Treinar o modelo (Xception)](#treinar-o-modelo-xception)<br />
-**7º Passo** – [Observar a acurácia do modelo (Xception) e a função de perda](#observar-a-acurácia-do-modelo-xception-e-a-função-de-perda)<br />
-**8º Passo** – [Determinando a arquitetura do modelo (ResNet50V2) que será treinado](#determinando-a-arquitetura-do-modelo-resnet50v2-que-será-treinado)<br />
-**9º Passo** – [Determinar os hyperparameters e compilar o modelo (ResNet50V2)](#determinar-os-hyperparameters-e-compilar-o-modelo-resnet50v2)<br />
-**10º Passo** - [Treinar o modelo (ResNet50V2)](#treinar-o-modelo-resnet50v2)<br />
-**11º Passo** - [Observar a acurácia do modelo (ResNet50V2) e a função de perda](#observar-a-acurácia-do-modelo-resnet50v2-e-a-função-de-perda)<br />
-**12º Passo** - [Determinando a arquitetura (VGG16) do modelo que será treinado](#determinando-a-arquitetura-vgg16-do-modelo-que-será-treinado)<br />
-**13º Passo** - [Determinar os hyperparameters e compilar o modelo (VGG16)](#determinar-os-hyperparameters-e-compilar-o-modelo-vgg16)<br />
-**14º Passo** - [Treinar o modelo (VGG16)](#treinar-o-modelo-vgg16)<br />
-**15º Passo** - [Observar a acurácia do modelo (VGG16) e a função de perda](#observar-a-acurácia-do-modelo-vgg16-e-a-função-de-perda)<br />
-**16º Passo** - [Observar quais imagens o modelo (VGG16) acertou](#observar-quais-imagens-o-modelo-vgg16-acertou)<br />
+**1º Passo** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
+**2º Passo** – [Load the arrays built in the data pre-processing step and normalize the input data](#load-the-arrays-built-in-the-data-pre-processing-step-and-normalize-the-input-data)<br />
+**3º Passo** – [Split data into training data and test data](#split-data-into-training-data-and-test-data)<br />
+**4º Passo** – [Determining the architecture of the model (Xception) to be trained](#determining-the-architecture-of-the-model-xception-to-be-trained)<br />
+**5º Passo** – [Determine the hyperparameters and compile the model (Xception)](#determine-the-hyperparameters-and-compile-the-model-xception)<br />
+**6º Passo** – [Train the model (Xception)](#train-the-model-xception)<br />
+**7º Passo** – [Observe the accuracy of the model (Xception) and the loss function](#observe-the-accuracy-of-the-model-xception-and-the-loss-function)<br />
+**8º Passo** – [Determining the architecture of the model (ResNet50V2) to be trained](#determining-the-architecture-of-the-model-resnet50v2-to-be-trained)<br />
+**9º Passo** – [Determine the hyperparameters and compile the model (ResNet50V2)](#determine-the-hyperparameters-and-compile-the-model-resnet50v2))<br />
+**10º Passo** - [Train the model (ResNet50V2)](#train-the-model-resnet50v2))<br />
+**11º Passo** - [Observe the accuracy of the model (ResNet50V2) and the loss function](#observe-the-accuracy-of-the-model-resnet50v2-and-the-loss-function)<br />
+**12º Passo** - [Determining the architecture of the model (VGG-16) to be trained](#determining-the-architecture-of-the-model-vgg-16-to-be-trained)<br />
+**13º Passo** - [Determine the hyperparameters and compile the model (VGG-16)](#determine-the-hyperparameters-and-compile-the-model-vgg-16)<br />
+**14º Passo** - [Train the model (VGG-16)](#train-the-model-vgg-16)<br />
+**15º Passo** - [Observe the accuracy of the model (VGG-16) and the loss function](#observe-the-accuracy-of-the-model-vgg-16-and-the-loss-function)<br />
+**16º Passo** - [Observe which images the model (VGG16) got correctly](#observe-which-images-the-model-vgg16-got-correctly)<br />
 
 
 **Tutorial 2:**
