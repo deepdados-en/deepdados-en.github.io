@@ -8,10 +8,10 @@ tags: [COVID]
 **Being translated!** 23/04/2020
 
 
-**Main objective of the project:** Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here](https://)
+**Main objective of the project:** Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here](https://github.com/deepdados-en/ProjetoCOVID/blob/master/treinamento_resultados_COVID_modelo2-en.ipynb)
 
 **Steps to reach the goal:**<br />
-1- [Data pre-processing](https://)<br /> 
+1- [Data pre-processing](https://deepdados-en.github.io/2020-04-25-Model-2-COVID19-Pre-Processing-data/)<br /> 
 2- Model training and exposure of results
 
 **Step 2 - Model training and exposure of results**
@@ -39,22 +39,22 @@ The notebook with all the codes used in this step is available [here](https://)<
 **Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
 *Steps to be followed:*<br />
-**1º Passo** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
-**2º Passo** – [Load the arrays built in the data pre-processing step and normalize the input data](#load-the-arrays-built-in-the-data-pre-processing-step-and-normalize-the-input-data)<br />
-**3º Passo** – [Split data into training data and test data](#split-data-into-training-data-and-test-data)<br />
-**4º Passo** – [Determining the architecture of the model (Xception) to be trained](#determining-the-architecture-of-the-model-xception-to-be-trained)<br />
-**5º Passo** – [Determine the hyperparameters and compile the model (Xception)](#determine-the-hyperparameters-and-compile-the-model-xception)<br />
-**6º Passo** – [Train the model (Xception)](#train-the-model-xception)<br />
-**7º Passo** – [Observe the accuracy of the model (Xception) and the loss function](#observe-the-accuracy-of-the-model-xception-and-the-loss-function)<br />
-**8º Passo** – [Determining the architecture of the model (ResNet50V2) to be trained](#determining-the-architecture-of-the-model-resnet50v2-to-be-trained)<br />
-**9º Passo** – [Determine the hyperparameters and compile the model (ResNet50V2)](#determine-the-hyperparameters-and-compile-the-model-resnet50v2))<br />
-**10º Passo** - [Train the model (ResNet50V2)](#train-the-model-resnet50v2))<br />
-**11º Passo** - [Observe the accuracy of the model (ResNet50V2) and the loss function](#observe-the-accuracy-of-the-model-resnet50v2-and-the-loss-function)<br />
-**12º Passo** - [Determining the architecture of the model (VGG-16) to be trained](#determining-the-architecture-of-the-model-vgg-16-to-be-trained)<br />
-**13º Passo** - [Determine the hyperparameters and compile the model (VGG-16)](#determine-the-hyperparameters-and-compile-the-model-vgg-16)<br />
-**14º Passo** - [Train the model (VGG-16)](#train-the-model-vgg-16)<br />
-**15º Passo** - [Observe the accuracy of the model (VGG-16) and the loss function](#observe-the-accuracy-of-the-model-vgg-16-and-the-loss-function)<br />
-**16º Passo** - [Observe which images the model (VGG16) got correctly](#observe-which-images-the-model-vgg16-got-correctly)<br />
+**1º Step** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
+**2º Step** – [Load the arrays built in the data pre-processing step and normalize the input data](#load-the-arrays-built-in-the-data-pre-processing-step-and-normalize-the-input-data)<br />
+**3º Step** – [Split data into training data and test data](#split-data-into-training-data-and-test-data)<br />
+**4º Step** – [Determining the architecture of the model (Xception) to be trained](#determining-the-architecture-of-the-model-xception-to-be-trained)<br />
+**5º Step** – [Determine the hyperparameters and compile the model (Xception)](#determine-the-hyperparameters-and-compile-the-model-xception)<br />
+**6º Step** – [Train the model (Xception)](#train-the-model-xception)<br />
+**7º Step** – [Observe the accuracy of the model (Xception) and the loss function](#observe-the-accuracy-of-the-model-xception-and-the-loss-function)<br />
+**8º Step** – [Determining the architecture of the model (ResNet50V2) to be trained](#determining-the-architecture-of-the-model-resnet50v2-to-be-trained)<br />
+**9º Step** – [Determine the hyperparameters and compile the model (ResNet50V2)](#determine-the-hyperparameters-and-compile-the-model-resnet50v2))<br />
+**10º Step** - [Train the model (ResNet50V2)](#train-the-model-resnet50v2))<br />
+**11º Step** - [Observe the accuracy of the model (ResNet50V2) and the loss function](#observe-the-accuracy-of-the-model-resnet50v2-and-the-loss-function)<br />
+**12º Step** - [Determining the architecture of the model (VGG-16) to be trained](#determining-the-architecture-of-the-model-vgg-16-to-be-trained)<br />
+**13º Step** - [Determine the hyperparameters and compile the model (VGG-16)](#determine-the-hyperparameters-and-compile-the-model-vgg-16)<br />
+**14º Step** - [Train the model (VGG-16)](#train-the-model-vgg-16)<br />
+**15º Step** - [Observe the accuracy of the model (VGG-16) and the loss function](#observe-the-accuracy-of-the-model-vgg-16-and-the-loss-function)<br />
+**16º Step** - [Observe which images the model (VGG16) got correctly](#observe-which-images-the-model-vgg16-got-correctly)<br />
 
 
 **Tutorial 2:**
