@@ -28,32 +28,32 @@ Main objective of the project: Automate the process of detecting COVID-19 cases 
 - CV2<br />
 
 *Code used in the project:*<br />
-The notebook with all the codes used in this step is available [here](https://)<br />
+The notebook with all the codes used in this step is available [here](https://github.com/deepdados-en/ProjetoCOVID/blob/master/preProcessamento_COVID_modelo2-en.ipynb)<br />
 **Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
 *Steps to be followed:*<br />
-**1º Passo** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
-**2º Passo** – [Load the dataframe for lung images of individuals with COVID-19](#load-the-dataframe-for-lung-images-of-individuals-with-covid-19)<br />
-**3º Passo** – [Analysis of the “df” dataframe](#analysis-of-the-df-dataframe)<br />
-**4º Passo** – [Select the cases related to COVID-19 on the “df” dataframe](#select-the-cases-related-to-covid-19-on-the-df-dataframe)<br />
-**5º Passo** – [Analysis of the “df_covid” dataframe](#analysis-of-the-df_covid-dataframe)<br />
-**6º Passo** – [Create a list to add the values of the variable/column “filename”](#create-a-list-to-add-the-values-of-the-variablecolumn-filename)<br />
-**7º Passo** – [Create a list with only the image formats that exist in the image folder](#create-a-list-with-only-the-image-formats-that-exist-in-the-image-folder)<br />
-**8º Passo** – [Create a function to open the images, observe their dimensions and, later, save this data in a dataframe](#create-a-function-to-open-the-images-observe-their-dimensions-and-later-save-this-data-in-a-dataframe)<br />
+**1º Step** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
+**2º Step** – [Load the dataframe for lung images of individuals with COVID-19](#load-the-dataframe-for-lung-images-of-individuals-with-covid-19)<br />
+**3º Step** – [Analysis of the “df” dataframe](#analysis-of-the-df-dataframe)<br />
+**4º Step** – [Select the cases related to COVID-19 on the “df” dataframe](#select-the-cases-related-to-covid-19-on-the-df-dataframe)<br />
+**5º Step** – [Analysis of the “df_covid” dataframe](#analysis-of-the-df_covid-dataframe)<br />
+**6º Step** – [Create a list to add the values of the variable/column “filename”](#create-a-list-to-add-the-values-of-the-variablecolumn-filename)<br />
+**7º Step** – [Create a list with only the image formats that exist in the image folder](#create-a-list-with-only-the-image-formats-that-exist-in-the-image-folder)<br />
+**8º Step** – [Create a function to open the images, observe their dimensions and, later, save this data in a dataframe](#create-a-function-to-open-the-images-observe-their-dimensions-and-later-save-this-data-in-a-dataframe)<br />
 **9º Passo** – [Create a variable that contains as value the address of the folder where the images are saved](#create-a-variable-that-contains-as-value-the-address-of-the-folder-where-the-images-are-saved)<br />
-**10º Passo** – [Use the function created to observe the size of the images](#use-the-function-created-to-observe-the-size-of-the-images)<br />
-**11º Passo** – [Convert all images to 237 x 237px .png](#convert-all-images-to-237-x-237px-png)<br />
-**12º Passo** – [Create a list of the images that will be deleted from the folder](#create-a-list-of-the-images-that-will-be-deleted-from-the-folder)<br />
-**13º Passo** – [Open the lung images of individuals without infection and create a list with the name of the images that exist in the image folder](#open-the-lung-images-of-individuals-without-infection-and-create-a-list-with-the-name-of-the-images-that-exist-in-the-image-folder)<br />
-**14º Passo** – [Convert all images of lungs from uninfected individuals to 237 x 237px .png](#convert-all-images-of-lungs-from-uninfected-individuals-to-237-x-237px-png)<br />
-**15º Passo** - [Open the lung images of individuals with other infections and create a list with the name of the images that exist in the image folder](#open-the-lung-images-of-individuals-with-other-infections-and-create-a-list-with-the-name-of-the-images-that-exist-in-the-image-folder)<br />
-**16º Passo** - [Convert all lung images of individuals with other infections to 237 x 237px .png](#convert-all-lung-images-of-individuals-with-other-infections-to-237-x-237px-png)<br />
-**17º Passo** – [Open the images of the lungs of individuals infected with COVID-19 in a list and transform them into an array (matrix of pixel values that represent the image)](#open-the-images-of-the-lungs-of-individuals-infected-with-covid-19-in-a-list-and-transform-them-into-an-array-matrix-of-pixel-values-that-represent-the-image))<br />
-**18º Passo** – [Open the images of the lungs of individuals without infections in a list and transform them into an array (Matrix of values of the pixels that represent the image)](#open-the-images-of-the-lungs-of-individuals-without-infections-in-a-list-and-transform-them-into-an-array-matrix-of-values-of-the-pixels-that-represent-the-image)<br />
-**19º Passo** - [Open the images of the lungs of individuals with other infections in a list and transform them into an array (array of pixel values representing the image)](#open-the-images-of-the-lungs-of-individuals-with-other-infections-in-a-list-and-transform-them-into-an-array-array-of-pixel-values-representing-the-image)<br />
-**20º Passo** - [Group arrays into a single array containing information about COVID-19, normal lung images, and with other infections](#group-arrays-into-a-single-array-containing-information-about-covid-19-normal-lung-images-and-with-other-infections)<br />
-**21º Passo** - [Indicate the cases that are COVID-19, the ones that are normal and the cases with other infections and create an array](#indicate-the-cases-that-are-covid-19-the-ones-that-are-normal-and-the-cases-with-other-infections-and-create-an-array)<br />
-**22º Passo** – [Save arrays to .npy](#save-arrays-to-npy)<br />
+**10º Step** – [Use the function created to observe the size of the images](#use-the-function-created-to-observe-the-size-of-the-images)<br />
+**11º Step** – [Convert all images to 237 x 237px .png](#convert-all-images-to-237-x-237px-png)<br />
+**12º Step** – [Create a list of the images that will be deleted from the folder](#create-a-list-of-the-images-that-will-be-deleted-from-the-folder)<br />
+**13º Step** – [Open the lung images of individuals without infection and create a list with the name of the images that exist in the image folder](#open-the-lung-images-of-individuals-without-infection-and-create-a-list-with-the-name-of-the-images-that-exist-in-the-image-folder)<br />
+**14º Step** – [Convert all images of lungs from uninfected individuals to 237 x 237px .png](#convert-all-images-of-lungs-from-uninfected-individuals-to-237-x-237px-png)<br />
+**15º Step** - [Open the lung images of individuals with other infections and create a list with the name of the images that exist in the image folder](#open-the-lung-images-of-individuals-with-other-infections-and-create-a-list-with-the-name-of-the-images-that-exist-in-the-image-folder)<br />
+**16º Step** - [Convert all lung images of individuals with other infections to 237 x 237px .png](#convert-all-lung-images-of-individuals-with-other-infections-to-237-x-237px-png)<br />
+**17º Step** – [Open the images of the lungs of individuals infected with COVID-19 in a list and transform them into an array (matrix of pixel values that represent the image)](#open-the-images-of-the-lungs-of-individuals-infected-with-covid-19-in-a-list-and-transform-them-into-an-array-matrix-of-pixel-values-that-represent-the-image))<br />
+**18º Step** – [Open the images of the lungs of individuals without infections in a list and transform them into an array (Matrix of values of the pixels that represent the image)](#open-the-images-of-the-lungs-of-individuals-without-infections-in-a-list-and-transform-them-into-an-array-matrix-of-values-of-the-pixels-that-represent-the-image)<br />
+**19º Step** - [Open the images of the lungs of individuals with other infections in a list and transform them into an array (array of pixel values representing the image)](#open-the-images-of-the-lungs-of-individuals-with-other-infections-in-a-list-and-transform-them-into-an-array-array-of-pixel-values-representing-the-image)<br />
+**20º Step** - [Group arrays into a single array containing information about COVID-19, normal lung images, and with other infections](#group-arrays-into-a-single-array-containing-information-about-covid-19-normal-lung-images-and-with-other-infections)<br />
+**21º Step** - [Indicate the cases that are COVID-19, the ones that are normal and the cases with other infections and create an array](#indicate-the-cases-that-are-covid-19-the-ones-that-are-normal-and-the-cases-with-other-infections-and-create-an-array)<br />
+**22º Step** – [Save arrays to .npy](#save-arrays-to-npy)<br />
 
 **Tutorial 1:**
 
