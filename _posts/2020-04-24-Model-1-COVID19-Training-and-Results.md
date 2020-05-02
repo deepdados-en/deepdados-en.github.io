@@ -5,8 +5,6 @@ subtitle: Model training and exposure of results - Model 1
 tags: [COVID]
 ---
 
-**Being translated!** 23/04/2020
-
 
 **Main objective of the project:** Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here](https://)
 
@@ -40,15 +38,15 @@ The notebook with all the codes used in this step is available [here](https://gi
 **Note:** the numbering and title of each step described in this tutorial correspond with the numbering and title contained in the notebook.
 
 *Steps to be followed:*<br />
-**1º Passo** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
-**2º Passo** – [Load the arrays built in the data pre-processing step and normalize the input data](#load-the-arrays-built-in-the-data-pre-processing-step-and-normalize-the-input-data)<br />
-**3º Passo** – [Split data into training data and test data](#split-data-into-training-data-and-test-data)<br />
-**4º Passo** – [Determining the architecture of the model to be trained](#determining-the-architecture-of-the-model-to-be-trained)<br />
-**5º Passo** – [Determine the hyperparameters and compile the model](#determine-the-hyperparameters-and-compile-the-model)<br />
-**6º Passo** – [Train the model](#train-the-model)<br />
-**7º Passo** – [Observe the accuracy of the model and the loss function](#observe-the-accuracy-of-the-model-and-the-loss-function)<br />
-**8º Passo** – [Observe which images the model hit](#observe-which-images-the-model-hit)<br />
-**9º Passo** – [Build a confusion matrix](#build-a-confusion-matrix)<br />
+**1º Step** – [Import the libraries to be used](#import-the-libraries-to-be-used)<br />
+**2º Step** – [Load the arrays built in the data pre-processing step and normalize the input data](#load-the-arrays-built-in-the-data-pre-processing-step-and-normalize-the-input-data)<br />
+**3º Step** – [Split data into training data and test data](#split-data-into-training-data-and-test-data)<br />
+**4º Step** – [Determining the architecture of the model to be trained](#determining-the-architecture-of-the-model-to-be-trained)<br />
+**5º Step** – [Determine the hyperparameters and compile the model](#determine-the-hyperparameters-and-compile-the-model)<br />
+**6º Step** – [Train the model](#train-the-model)<br />
+**7º Step** – [Observe the accuracy of the model and the loss function](#observe-the-accuracy-of-the-model-and-the-loss-function)<br />
+**8º Step** – [Observe which images the model hit](#observe-which-images-the-model-hit)<br />
+**9º Step** – [Build a confusion matrix](#build-a-confusion-matrix)<br />
 
 **Tutorial 2:**
 
@@ -92,7 +90,7 @@ import seaborn as sn
 **2º Step**
 #### Load the arrays built in the data pre-processing step and normalize the input data
 
-The “X_Train” and “Y_Train” arrays built in [Step 1] (https://deepdados-en.github.io/2020-04-23-Model-1-COVID19-Pre-Processing-data/) were loaded and associated, respectively, with the variables “X_train” and “Y_train”. In addition, the variable X_train has been normalized for values ​​ranging from 0 to 1.
+The “X_Train” and “Y_Train” arrays built in [Step 1](https://deepdados-en.github.io/2020-04-23-Model-1-COVID19-Pre-Processing-data/) were loaded and associated, respectively, with the variables “X_train” and “Y_train”. In addition, the variable X_train has been normalized for values ​​ranging from 0 to 1.
 
 ``` python
 X_train = np.load("/content/drive/My Drive/Python/COVID/Arrays/X_Train.npy")
