@@ -5,11 +5,10 @@ subtitle: Data pre-processing - Model 2
 tags: [COVID]
 ---
 
-**Being translated!** 23/04/2020
 
 Main objective of the project: Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here](https://)
 
-**Etapas para alcançar o objetivo:**<br />
+**Steps to reach the goal:**<br />
 1- Data pre-processing<br />
 [2- Model training and exposure of results](https://deepdados-en.github.io/2020-04-27-Model-2-COVID19-Training-and-Results/)
 
@@ -39,9 +38,9 @@ The notebook with all the codes used in this step is available [here](https://gi
 **5º Step** – [Analysis of the “df_covid” dataframe](#analysis-of-the-df_covid-dataframe)<br />
 **6º Step** – [Create a list to add the values of the variable/column “filename”](#create-a-list-to-add-the-values-of-the-variablecolumn-filename)<br />
 **7º Step** – [Create a list with only the image formats that exist in the image folder](#create-a-list-with-only-the-image-formats-that-exist-in-the-image-folder)<br />
-**8º Step** – [Create a function to open the images, observe their dimensions and, later, save this data in a dataframe](#create-a-function-to-open-the-images-observe-their-dimensions-and-later-save-this-data-in-a-dataframe)<br />
+**8º Step** – [Create a function to open the images, check their dimensions and, later, save this data in a dataframe](#create-a-function-to-open-the-images-check-their-dimensions-and-later-save-this-data-in-a-dataframe)<br />
 **9º Passo** – [Create a variable that contains as value the address of the folder where the images are saved](#create-a-variable-that-contains-as-value-the-address-of-the-folder-where-the-images-are-saved)<br />
-**10º Step** – [Use the function created to observe the size of the images](#use-the-function-created-to-observe-the-size-of-the-images)<br />
+**10º Step** – [Use the function created to check the size of the images](#use-the-function-created-to-check-the-size-of-the-images)<br />
 **11º Step** – [Convert all images to 237 x 237px .png](#convert-all-images-to-237-x-237px-png)<br />
 **12º Step** – [Create a list of the images that will be deleted from the folder](#create-a-list-of-the-images-that-will-be-deleted-from-the-folder)<br />
 **13º Step** – [Open the lung images of individuals without infection and create a list with the name of the images that exist in the image folder](#open-the-lung-images-of-individuals-without-infection-and-create-a-list-with-the-name-of-the-images-that-exist-in-the-image-folder)<br />
@@ -118,7 +117,7 @@ df_covid = df[df["finding"] == "COVID-19"]
 **5º Step**
 #### Analysis of the “df_covid” dataframe
 
-We asked to observe the “df_covid” dataframe, in order to analyze whether the selection of COVID-19 cases was carried out correctly. For this, we ask to see the end of this dataframe. In addition, we request that only the variables/columns “finding” and “filename” be shown. The “finding” refers to the selected COVID-19 cases and the “filename” indicates the name of the COVID-19 radiography images made available by the authors of the bank in question (COHE; MORRISON; DAO, 2020). This last information was requested, as it will be used in the next step.
+We asked to check the “df_covid” dataframe, in order to analyze whether the selection of COVID-19 cases was carried out correctly. For this, we ask to see the end of this dataframe. In addition, we request that only the variables/columns “finding” and “filename” be shown. The “finding” refers to the selected COVID-19 cases and the “filename” indicates the name of the COVID-19 radiography images made available by the authors of the bank in question (COHE; MORRISON; DAO, 2020). This last information was requested, as it will be used in the next step.
 
 ``` python
 df_covid[["finding","filename"]].tail()
@@ -156,7 +155,7 @@ print(len(imagensCovid))
 ```
 
 **8º Step**
-#### Create a function to open the images, observe their dimensions and, later, save this data in a dataframe
+#### Create a function to open the images, check their dimensions and, later, save this data in a dataframe
 
 Knowing that this action will be used frequently in the data pre-processing steps of the models that will be trained, we created a function to facilitate this process. Thus, the function below (“df_dimensao”) defines the creation of a dataframe with the dimensions of the images located in a given folder.
 
@@ -210,7 +209,7 @@ rootFolder = "/Users/cesarsoares/Documents/Python/COVID/Banco_de_Dados/covid-che
 **Note:** in relation to the other function attribute called “lista_nome_imagens”, we will use the list created in Step 7 (“imagensCovid”).<br />
 
 **10º Step**
-#### Use the function created to observe the size of the images
+#### Use the function created to check the size of the images
 
 From the created function, we save the values in the “dimensao” variable. Below you can see the names of each figure and its dimension (width x height) in pixels.
 
