@@ -5,8 +5,6 @@ subtitle: Model training and exposure of results - Model 2
 tags: [COVID]
 ---
 
-**Being translated!** 23/04/2020
-
 
 **Main objective of the project:** Automate the process of detecting COVID-19 cases from chest radiograph images, using convolutional neural networks (CNN) through deep learning techniques. The complete project can be accessed [here]()
 
@@ -102,7 +100,7 @@ import seaborn as sn
 **2º Step**
 #### Load the arrays built in the data pre-processing step and normalize the input data
 
-The “X_Train” and “Y_Train” arrays built in [Step 1] (https://deepdados-en.github.io/2020-04-23-Model-1-COVID19-Pre-Processing-data/) were loaded and associated, respectively, with the variables “X_train” and “Y_train”. In addition, the variable X_train has been normalized for values ​​ranging from 0 to 1.
+The “X_Train” and “Y_Train” arrays built in [Step 1](https://deepdados-en.github.io/2020-04-25-Model-2-COVID19-Pre-Processing-data/) were loaded and associated, respectively, with the variables “X_train” and “Y_train”. In addition, the variable X_train has been normalized for values ​​ranging from 0 to 1.
 
 ``` python
 X_train = np.load("/content/drive/My Drive/Python/COVID/Arrays/Modelo2/X_Train.npy")
